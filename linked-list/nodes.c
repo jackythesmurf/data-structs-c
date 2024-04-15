@@ -64,7 +64,29 @@ void free_node_mem(struct Node* head) {
   }
 }
 
+int check_out_of_bounds(struct Node *head, int index) {
+  struct Node *current = head;
+  int iteration = 0;
+  while (current) {
+    iteration++;
+    current = current->next_node;
+  }
+  if (index > iteration) {
+    printf("Index out of bounds\n");
+    return 1;
+  }
+  return 0;
+}
+
 void append_at_index(struct Node **head, int index, int value) {
+  if (index < 0) {
+    printf("Out of index\n");
+    return;
+  }
+  if (check_out_of_bounds(*head, index) == 1) {
+    return;
+  }
+
   int iteration = 0;
   struct Node* current = *head;
   struct Node* new_node = create_node();
@@ -87,6 +109,14 @@ void append_at_index(struct Node **head, int index, int value) {
 }
 
 void remove_at_index(struct Node **head, int index) {
+  if (index < 0) {
+    printf("Out of index\n");
+    return;
+  }
+  if (check_out_of_bounds(*head, index) == 1) {
+    return;
+  }
+
   int iteration = 0;
   struct Node *current = *head;
 

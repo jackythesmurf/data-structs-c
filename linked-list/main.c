@@ -16,12 +16,14 @@ int main()
     push(head, 1);
     push(head, 2);
     push(head, 3);
+    printf("Initialise linkedlist . . . \n");
     print_list(head); 
 
     /*
     pop the last node in linkedlist
     */
     pop(&head);
+    printf("Pop the last node . . . \n");
     print_list(head);
 
 
@@ -30,19 +32,24 @@ int main()
     // append node at the start of the list
     // */
     append_at_index(&head, 1, 4);
+    printf("Appending node at index 1 . . . \n");
     print_list(head);
 
     append_at_index(&head, 0, 5);
+    printf("Appending node at index 0 . . . \n");
     print_list(head);
 
     // /*
     // remove node at the middle of the list
     // remove node at the start of the list
     // */
+
     remove_at_index(&head, 2);
+    printf("Removing node at index 2 . . . \n");
     print_list(head);
 
     remove_at_index(&head, 0);
+    printf("Removing node at index 0 . . . \n");
     print_list(head);
 
     /*
